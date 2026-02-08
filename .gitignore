@@ -1,0 +1,7 @@
+# Systemfiler
+.DS_Store
+Thumbs.db
+
+# Editor-filer
+.vscode/
+*.swp
