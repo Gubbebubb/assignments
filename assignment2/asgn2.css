@@ -1,0 +1,21 @@
+body {
+    background-color: lightgreen;
+}
+
+nav {
+    background-color: lightgoldenrodyellow;
+}
+
+footer p {
+    color: lightgreen;
+}
+
+div {
+
+    background-color: lightgoldenrodyellow;
+}
+
+.current {
+    color: darkred;
+    pointer-events: none;
+}
