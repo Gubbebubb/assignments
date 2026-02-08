@@ -1,1 +1,1 @@
-export const asgn = [{id: "asgn1", title: "Uppgift 1", link: "../assignment1/index.html", description: "Uppgift 1 handlade om att skapa denna sida. Vad meta... "}, {id: "asgn2", title: "Uppgift 2", link: "../assignment2/index.html", description: "Uppgift 2 ska jag snart göra... "}]
+export const asgn = [{id: "asgn1", title: "Uppgift 1", link: "assignment1/index.html", description: "Uppgift 1 handlade om att skapa denna sida. Vad meta... "}, {id: "asgn2", title: "Uppgift 2", link: "assignment2/index.html", description: "Uppgift 2 ska jag snart göra... "}]
