@@ -20,7 +20,7 @@ export function gloNav(navAsgn) {
         nav.append(list);
         const allLinks = document.querySelectorAll("nav a");
         for (const all of allLinks) {
-            if (links.id === curPage) {
+            if (links.id == curPage) {
                 link.classList.add("current");
             }
         }
