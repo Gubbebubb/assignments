@@ -1,0 +1,21 @@
+body {
+    background-color: lightcyan;
+}
+
+nav {
+    background-color: lightblue;
+}
+
+footer p {
+    color: lightcyan;
+}
+
+div {
+
+    background-color: lightblue;
+}
+
+.current {
+    color: darkred;
+    pointer-events: none;
+}
