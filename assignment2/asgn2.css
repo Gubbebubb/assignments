@@ -19,3 +19,42 @@ div {
     color: darkred;
     pointer-events: none;
 }
+
+#container {
+    display: grid;
+    grid-template-columns: auto auto;
+    padding: 2rem;
+}
+
+.item {
+    background-color: white;
+    box-shadow: 0.2rem 0.2rem 1rem rgb(28, 26, 57);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 1rem;
+    max-width: 20rem;
+}
+
+.item:hover {
+    transform: translateY(0.4rem);
+    background-color: rgb(255, 238, 209);
+    box-shadow: 0.2rem 0.2rem 1rem rgb(215, 109, 47);
+}
+
+#kundvagn {
+    justify-content: center;
+    position: fixed;
+    top: 4rem;
+    right: 4rem;
+    background-color: rgb(255, 238, 209);
+    box-shadow: 0.2rem 0.2rem 1rem rgb(28, 26, 57);
+    z-index: 999999;
+    color: black;
+    padding: 2rem;
+    border: 1rem double goldenrod;
+}
+
+.hidden {
+    display: none;
+}
