@@ -58,3 +58,9 @@ div {
 .hidden {
     display: none;
 }
+
+.category {
+    font-style: italic;
+    padding: 0;
+    margin: 0;
+}

@@ -95,11 +95,15 @@ function proCreate(products) {
         const pdesc = document.createElement("p");
         const pprice = document.createElement("p");
         const pimg = document.createElement("img")
+        const pcat = document.createElement("p")
         pname.textContent = product.name;
         pdesc.textContent = product.description;
         pprice.textContent = product.price + "kr";
+        pcat.textContent = product.category;
         pimg.src = product.image;
         pimg.alt = product.name;
+        pcat.classList.add("category");
+        card.append(pcat);
         card.append(pname);
         card.append(pdesc);
         card.append(pimg);
