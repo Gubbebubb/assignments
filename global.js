@@ -3,7 +3,7 @@ export function gloNav(navAsgn) {
     const homeli = document.createElement("li");
     const homea = document.createElement("a");
     const curPage = document.querySelector("nav").id;
-    if (curPage == "") {
+    if (curPage == "home") {
         homea.classList.add("current");
     }
     homeli.textContent = "Start";
@@ -37,7 +37,7 @@ export function gloCards(navAsgn) {
         title.textContent = pages.title;
         text.textContent = pages.description;
         cLink.textContent = "Gå till uppgift!";
-        if (curPage == home) {
+        if (curPage == "home") {
             cLink.href = pages.link;   
         }
         else {
