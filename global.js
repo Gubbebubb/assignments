@@ -37,7 +37,12 @@ export function gloCards(navAsgn) {
         title.textContent = pages.title;
         text.textContent = pages.description;
         cLink.textContent = "Gå till uppgift!";
-        cLink.href = pages.link;
+        if (curPage == home) {
+            cLink.href = pages.link;   
+        }
+        else {
+            cLink.href = "../" + pages.link;
+        }
         main.append(card);
         card.append(title);
         title.append(text);
