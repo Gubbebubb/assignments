@@ -3,8 +3,6 @@ import { gloNav } from "../global.js";
 import { products } from "./products.js";
 
 gloNav(asgn);
-
-const current = document.querySelector("nav").id;
 //från uppgift 1
 
 const cartSave = JSON.parse(localStorage.getItem("cart"));
