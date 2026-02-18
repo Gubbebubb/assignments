@@ -20,7 +20,6 @@ export function gloNav(navAsgn) {
             link.href = "../" + links.link;
         }
         link.textContent = links.title;
-        link.href = links.link;
         link.dataset.id = links.id;
         list.append(link);
         nav.append(list);
