@@ -13,6 +13,12 @@ export function gloNav(navAsgn) {
     for (const links of navAsgn) {
         const list = document.createElement("li");
         const link = document.createElement("a");
+        if (curPage == "home") {
+            link.href = links.link;   
+        }
+        else {
+            link.href = "../" + links.link;
+        }
         link.textContent = links.title;
         link.href = links.link;
         link.dataset.id = links.id;
@@ -37,12 +43,6 @@ export function gloCards(navAsgn) {
         title.textContent = pages.title;
         text.textContent = pages.description;
         cLink.textContent = "Gå till uppgift!";
-        if (curPage == "home") {
-            cLink.href = pages.link;   
-        }
-        else {
-            cLink.href = "../" + pages.link;
-        }
         main.append(card);
         card.append(title);
         title.append(text);
