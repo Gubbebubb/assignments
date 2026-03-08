@@ -1,0 +1,58 @@
+[
+  {
+    "id": "r-001",
+    "name": "Torsten Turbomotor",
+    "image": "images/torsten.jpg",
+    "skillLevel": 8,
+    "catchphrase": "Brinner för att vinna!"
+  },
+  {
+    "id": "r-002",
+    "name": "Greta Grindfräs",
+    "image": "images/greta.jpg",
+    "skillLevel": 7,
+    "catchphrase": "Jag klipper konkurrensen!"
+  },
+  {
+    "id": "r-003",
+    "name": "Björn-Borg 3000",
+    "image": "images/bjornborg.jpg",
+    "skillLevel": 6,
+    "catchphrase": "Ni kan inte röra mig!"
+  },
+  {
+    "id": "r-004",
+    "name": "Blixtra",
+    "image": "images/blixtra.jpg",
+    "skillLevel": 9,
+    "catchphrase": "Snabbare än din WiFi!"
+  },
+  {
+    "id": "r-005",
+    "name": "Hammare-Henrietta",
+    "image": "images/henrietta.jpg",
+    "skillLevel": 7,
+    "catchphrase": "Det är hammar-dags!"
+  },
+  {
+    "id": "r-006",
+    "name": "Mystiska Molnet",
+    "image": "images/molnet.jpg",
+    "skillLevel": 5,
+    "catchphrase": null
+  },
+  {
+    "id": "r-007",
+    "name": "Skrot-Sigge",
+    "image": "images/sigge.jpg",
+    "skillLevel": 4,
+    "catchphrase": "En robots skräp är en annan robots skatt!"
+  },
+  {
+    "id": "r-008",
+    "name": "Nolla Noll-Åtta",
+    "image": "images/nolla.jpg",
+    "skillLevel": 4,
+    "catchphrase": "..."
+  }
+]
