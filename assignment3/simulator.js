@@ -5,6 +5,7 @@ export const tournament = document.getElementById("trnm");
 export let CR = 0;
 export let winners = [];
 export let matches = [];
+
 export function Matchmake(contestants) {
     winners = [];
     matches = [];
@@ -26,4 +27,10 @@ export function Matchmake(contestants) {
         matches.push(match);
     }
     return winners;
+}
+
+export function reset() {
+    winners = [];
+    matches = [];
+    CR = 0;
 }

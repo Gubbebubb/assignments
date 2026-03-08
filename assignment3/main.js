@@ -23,15 +23,13 @@ simBtn.addEventListener("click", function () {
 })
 
 reBtn.addEventListener("click", function () {
-    simulator.winners = [];
-    simulator.matches = [];
-    simulator.CR = 0;
+    simulator.reset();
     simBtn.disabled = false;
     simulator.tournament.innerHTML = "";
     simulator.curRound.textContent = "Kvartsfinal"
     fetch("contestants.json").then(Resp => Resp.json()).then(Contestants => {
-    simulator.Matchmake(Contestants);
-})
+        simulator.Matchmake(Contestants);
+    })
 });
 
 fetch("contestants.json").then(Resp => Resp.json()).then(Contestants => {
