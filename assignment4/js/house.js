@@ -142,7 +142,7 @@ function scareConverter(level) {
 let skies = ["Klar himmel", "Halvklar himmel", "Molnigt", "Mulet"];
 
 function renderHouse(id) {
-    if (isNaN(id) || id > houseData.length) {
+    if (isNaN(id) || id > houseData.length || id == "") {
         info.innerHTML =
             `<p class="error">HUSET KUNDE INTE HITTAS - KANSKE HAR DET FÖRSVUNNIT I DIMMAN?</p>`
         info.classList.add("error");
@@ -167,6 +167,7 @@ function renderHouse(id) {
         .then(data => {
             let card = document.createElement("div");
             card.innerHTML = `
+            <img src="images/${house.image}" alt="${house.name}">
             <h3>${curHouse[0].name}</h3>
             <p>${curHouse[0].location}</p>
             <p>${curHouse[0].description}</p>

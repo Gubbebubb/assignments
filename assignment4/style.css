@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+img {
+    max-width: 20rem;
+}
+
 h1, h2, h3, h4, p, li, label {
     color: lightyellow;
     font-family: 'Courier New', Courier, monospace;

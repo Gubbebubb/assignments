@@ -1,4 +1,3 @@
-//House ES
 const houses = document.getElementById("houses");
 const scareList = ["Bebisens första skräckhus", "Konstig stämning", "Indieskräckfilm", "Makare av mardrömmar", "Ren terror"]
 let houseData = [];
@@ -16,56 +15,51 @@ let filteredData = "";
 const wifi = document.getElementById("wifi");
 let wifiReq = false;
 
-fetch("houses.json")
-    .then(response => response.json())
-    .then(data => {
-        houseData = data;
+async function fetchHouses() {
+    try {
+        const response = await fetch("houses.json")
+        if (!response.ok) throw new Error("Kunde inte hämta husdata");
+        houseData = await response.json();
         renderGhosts();
         renderHouses();
-    })
+    } catch (error) {
+        houses.innerHTML = `<p class="error">${error.message}</p>`;
+        houses.classList.add("error");
+    }
+}
 
 function renderHouses() {
-    houses.innerHTML = "";
-    houses.classList.remove("error");
-    if (selected != "all" && wifiReq == true) {
-        filteredData = houseData.filter(h =>
-            h.scareLevel >= slider.value &&
-            h.pricePerNight <= curPrice &&
-            h.ghostTypes.filter(g => selected.includes(g)).length > 0 &&
-            h.hasWifi == true)
-    }
-    else if (selected != "all") {
-        filteredData = houseData.filter(h =>
-            h.scareLevel >= slider.value &&
-            h.pricePerNight <= curPrice &&
-            h.ghostTypes.filter(g => selected.includes(g)).length > 0)
-    }
-    else if (wifiReq == true) {
-        filteredData = houseData.filter(h =>
-            h.scareLevel >= slider.value &&
-            h.pricePerNight <= curPrice &&
-            h.hasWifi == true)
-    }
-    else {
-        filteredData = houseData.filter(h =>
-            h.scareLevel >= slider.value &&
-            h.pricePerNight <= curPrice)
-    }
-    for (let house of filteredData) {
-        let card = document.createElement("div");
-        card.innerHTML = `
+    try {
+        houses.innerHTML = "";
+        houses.classList.remove("error");
+        filteredData = houseData.filter(h => {
+            const scariness = h.scareLevel >= slider.value;
+            const ppn = h.pricePerNight <= curPrice;
+            const ghostslist = selected == "all" || h.ghostTypes.includes(selected);
+            const hw = !wifiReq || h.hasWifi;
+            return scariness && ppn && ghostslist && hw;
+        })
+
+        if (filteredData.length == 0) {
+            houses.innerHTML = `<p class="error">INGA SPÖKHUS MATCHADE DIN SÖKNING - KANSKE SÄNKA KRAVEN LITE? SPÖKENA VÄNTAR!</p>`
+            houses.classList.add("error");
+            return
+        }
+        for (let house of filteredData) {
+            let card = document.createElement("div");
+            card.innerHTML = `
+            <img src="images/${house.image}" alt="${house.name}">
             <h3>${house.name}</h3>
             <p>${house.location}</p>
             <p>${house.pricePerNight} Kr</p>
             <p class="level${house.scareLevel}">${scareConverter(house.scareLevel)}</p>
             <a href="house.html?id=${house.id}">Läs mer och boka</a>
             `
-        houses.append(card);
-        card.classList.add("card");
-    }
-    if (houses.innerHTML == "") {
-        houses.innerHTML =
-            `<p class="error">INGA SPÖKHUS MATCHADE DIN SÖKNING - KANSKE SÄNKA KRAVEN LITE? SPÖKENA VÄNTAR!</p>`
+            houses.append(card);
+            card.classList.add("card");
+        }
+    } catch (error) {
+        houses.innerHTML = `<p class="error">${error.message}</p>`;
         houses.classList.add("error");
     }
 }
