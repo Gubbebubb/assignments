@@ -1,8 +1,8 @@
 const info = document.getElementById("info");
 const bookContainer = document.getElementById("container");
 
-import { Booking } from "./booking.js";
-import { scareConverter, fetchJSON } from "./utils.js";
+import { Booking } from "/js/booking.js";
+import { scareConverter, fetchJSON } from "/js/utils.js";
 
 let curHouse = {};
 
@@ -126,7 +126,7 @@ let houseData = [];
 
 async function fetchHouse() {
     try {
-        houseData = await fetchJSON("../houses.json")
+        houseData = await fetchJSON("/houses.json")
         let id = new URLSearchParams(window.location.search).get("id");
         if (!id) throw new Error("Id saknas");
         renderHouse(id);
