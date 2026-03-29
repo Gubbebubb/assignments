@@ -2,7 +2,7 @@ const houses = document.getElementById("houses");
 
 let houseData = [];
 
-import { scareConverter, fetchJSON } from "utils.js";
+import { scareConverter, fetchJSON } from "./utils.js";
 
 const slider = document.getElementById("slider");
 const sliderText = document.getElementById("slider-text")

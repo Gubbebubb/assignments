@@ -1,8 +1,8 @@
 const info = document.getElementById("info");
 const bookContainer = document.getElementById("container");
 
-import { Booking } from "booking.js";
-import { scareConverter, fetchJSON } from "utils.js";
+import { Booking } from "./booking.js";
+import { scareConverter, fetchJSON } from "./utils.js";
 
 let curHouse = {};
 
