@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spökhusbyrån</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="main.js"></script>
+</head>
+<body>
+    <div id="filter">
+        <label for="slider" id="slider-text">Lägsta skräcknivå: Bebisens första skräckhus</label>
+        <input type="range" id="slider" min="1" max="5" value="1">
+        <label for="price">Maxpris:</label>
+        <input type="number" id="price" placeholder="T.ex. 1500">
+        <label for="ghosts">Typ av spöke:</label>
+        <select id="ghosts">
+            <option value="all">Alla typer</option>
+        </select>
+        <input type="checkbox" id="wifi">
+        <label for="wifi">Måste ha WiFi</label>
+    </div>
+    <div id="houses"></div>
+</body>
+</html>

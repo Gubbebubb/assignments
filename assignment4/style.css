@@ -1,0 +1,114 @@
+body {
+    background-color: rgb(44, 0, 20);
+    margin: 0;
+}
+
+h1, h2, h3, p, li, label {
+    color: lightyellow;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+h3 {
+    text-shadow: 0.05em 0 darkgray, 0.1em 0 darkgray, 0 0 0.5rem white;
+}
+
+.card {
+    border-radius: 1rem;
+    border: 0.5rem double lightyellow;
+    margin: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+#houses {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    justify-content: center;
+}
+
+#houses.error {
+    display: block;
+    justify-content: center;
+}
+
+a {
+    border-radius: 0.1rem;
+    background-color: white;
+    padding: 0.2rem;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#filter {
+    display: flex;
+    padding: 1rem;
+    background-color: black;
+    border: 0.1rem solid lightyellow;
+}
+
+#slider {
+    margin-right: 2rem;
+}
+
+#slider-text {
+    width: 30rem;
+    letter-spacing: 0.025rem;
+}
+
+.level1 {
+    color: lightseagreen;
+    letter-spacing: 0.05rem;
+    text-shadow: 0.1em 0 aliceblue, 0 0 0.5rem white;
+    
+}
+
+.level2 {
+    color: lightgreen;
+    letter-spacing: 0.075rem;
+    text-shadow: 0.1em 0 aquamarine, 0 0 0.5rem white;
+}
+
+.level3 {
+    color: yellow;
+    letter-spacing: 0.1rem;
+    text-shadow: 0.1em 0 lightyellow, 0 0 0.5rem white;
+}
+
+.level4 {
+    color: orange;
+    letter-spacing: 0.125rem;
+    text-shadow: 0.1em 0 lightsalmon, 0 0 0.5rem white;
+}
+
+.level5 {
+    color: orangered;
+    letter-spacing: 0.15rem;
+    text-shadow: 0.1em 0 coral, 0 0 0.5rem white;
+}
+
+.error {
+    text-align: center;
+    min-width: 100vh;
+    font-style: italic;
+    font-size: larger;
+    font-weight: bold;
+    color: coral;
+    background-color: black;
+    margin-top: 20rem;
+    box-shadow: 0 0 1rem black, 0 0 1rem black, 0 0 1rem black, 0 0 1rem black;
+}
+
+#price {
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+#ghosts {
+    margin-left: 0.5rem;
+}
+
+#wifi {
+    margin-left: 2rem;
+    margin-right: 1rem;
+}
