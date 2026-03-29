@@ -51,23 +51,23 @@ function renderHouses() {
             h.scareLevel >= slider.value &&
             h.pricePerNight <= curPrice)
     }
-for (let house of filteredData) {
-    let card = document.createElement("div");
-    card.innerHTML = `
+    for (let house of filteredData) {
+        let card = document.createElement("div");
+        card.innerHTML = `
             <h3>${house.name}</h3>
             <p>${house.location}</p>
             <p>${house.pricePerNight} Kr</p>
             <p class="level${house.scareLevel}">${scareConverter(house.scareLevel)}</p>
             <a href="house.html?id=${house.id}">Läs mer och boka</a>
             `
-    houses.append(card);
-    card.classList.add("card");
-}
-if (houses.innerHTML == "") {
-    houses.innerHTML =
-        `<p class="error">INGA SPÖKHUS MATCHADE DIN SÖKNING - KANSKE SÄNKA KRAVEN LITE? SPÖKENA VÄNTAR!</p>`
-    houses.classList.add("error");
-}
+        houses.append(card);
+        card.classList.add("card");
+    }
+    if (houses.innerHTML == "") {
+        houses.innerHTML =
+            `<p class="error">INGA SPÖKHUS MATCHADE DIN SÖKNING - KANSKE SÄNKA KRAVEN LITE? SPÖKENA VÄNTAR!</p>`
+        houses.classList.add("error");
+    }
 }
 
 function scareConverter(level) {

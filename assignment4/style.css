@@ -3,12 +3,17 @@ body {
     margin: 0;
 }
 
-h1, h2, h3, p, li, label {
+h1, h2, h3, h4, p, li, label {
     color: lightyellow;
     font-family: 'Courier New', Courier, monospace;
 }
 
 h3 {
+    text-shadow: 0.05em 0 darkgray, 0.1em 0 darkgray, 0 0 0.5rem white;
+}
+
+h4 {
+    font-size: large;
     text-shadow: 0.05em 0 darkgray, 0.1em 0 darkgray, 0 0 0.5rem white;
 }
 
@@ -34,9 +39,9 @@ h3 {
 }
 
 a {
-    border-radius: 0.1rem;
-    background-color: white;
-    padding: 0.2rem;
+    border-radius: 0.2rem;
+    background-image: linear-gradient(khaki, lightyellow);
+    padding: 0.3rem;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -111,4 +116,59 @@ a {
 #wifi {
     margin-left: 2rem;
     margin-right: 1rem;
+}
+
+#price, #ghosts {
+    border-radius: 0.2rem;
+}
+
+p.weather {
+    border: 0.1rem dotted lightyellow;
+    padding: 0.3rem;
+    border-radius: 0.3rem;
+    max-width: fit-content;
+}
+
+#extras {
+    margin: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border: 0.1rem solid lightyellow;
+}
+
+#extras label {
+    margin-right: 2rem;
+}
+
+#coupon {
+    margin-left: -1.8rem;
+}
+
+#container {
+    display: grid;
+    justify-content: space-evenly;
+    margin: 2rem;
+    margin-left: 6rem;
+    margin-right: 6rem;
+    background-color: black;
+    border: 0.1rem solid lightyellow;
+    padding: 4rem;
+    border-radius: 0.2rem;
+}
+
+#container button {
+    width: 20rem;
+    margin: auto;
+    border-radius: 0.5rem;
+    padding: 0.4rem;
+    background-image: linear-gradient(white, yellow, orange, red, red);
+    box-shadow: 0 0 1rem red;
+}
+
+#container p {
+    font-size: large;
+    padding-bottom: 0.5rem;
+    margin-left: 2rem;
+    margin-top: 0;
 }

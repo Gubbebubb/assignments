@@ -1,22 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Spökhusbyrån</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="js/house.js"></script>
 </head>
+
 <body>
-    <div id="book">
-        <input type="checkbox" id="breakfast">
-        <label for="breakfast">Kuslig frukost</label>
-        <input type="checkbox" id="wander">
-        <label for="wander">Spökvandring</label>
-        <input type="checkbox" id="seance">
-        <label for="seance">Nattlig seans</label>
-        <label for="coupon">Kampanjkod</label>
-        <input type="text" id="coupon" placeholder="T.ex. GHOST20">
+    <a href="index.html">Tillbaka till alla spökhus</a>
+    <div id="info"></div>
+    <div id="container">
+        <form id="book">
+            <label for="date">Incheckningsdatum:</label>
+            <input type="date" id="date" required>
+            <label for="days">Antal dagar:</label>
+            <input type="number" id="days" min="1" value="1" required>
+        </form>
+        <div id="extras">
+            <input type="checkbox" id="breakfast">
+            <label for="breakfast">Kuslig frukost (100 kr/dag)</label>
+            <input type="checkbox" id="wander">
+            <label for="wander">Spökvandring (300 kr)</label>
+            <input type="checkbox" id="seance">
+            <label for="seance">Nattlig seans (500 kr)</label>
+            <label for="coupon">Kampanjkod:</label>
+            <input type="text" id="coupon" placeholder="T.ex. GHOST20">
+        </div>
+        <p id="total"></p>
         <button id="bookBtn">Boka</button>
-        <p>pris: </p>
     </div>
 </body>
+
 </html>
