@@ -126,7 +126,7 @@ let houseData = [];
 
 async function fetchHouse() {
     try {
-        houseData = await fetchJSON("../houses.json")
+        houseData = await fetchJSON("./houses.json")
         let id = new URLSearchParams(window.location.search).get("id");
         if (!id) throw new Error("Id saknas");
         renderHouse(id);

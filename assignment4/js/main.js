@@ -19,7 +19,7 @@ let wifiReq = false;
 
 async function fetchHouses() {
     try {
-        houseData = await fetchJSON("../houses.json");
+        houseData = await fetchJSON("./houses.json");
         renderHouses();
         renderGhosts();
     }
