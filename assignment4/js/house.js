@@ -106,7 +106,7 @@ bookBtn.addEventListener("click", function () {
         }
         success.innerHTML = `
         <h4>Bokningen lyckades!</h4>
-        <p>${curHouse[0].name}</p>
+        <p>${curHouse.name}</p>
         <p>${bookClass.checkin.toLocaleDateString("sv-SE", {
             day: "numeric",
             month: "short",
