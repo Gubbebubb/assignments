@@ -1,11 +1,10 @@
-const scareList = ["Bebisens första skräckhus", "Konstig stämning", "Indieskräckfilm", "Makare av mardrömmar", "Ren terror"]
-
 const info = document.getElementById("info");
 const bookContainer = document.getElementById("container");
 
 import { Booking } from "./booking.js";
+import { scareConverter, fetchJSON } from "./utils.js";
 
-let curHouse = [];
+let curHouse = {};
 
 const breakfastCheck = document.getElementById("breakfast");
 const wanderCheck = document.getElementById("wander");
@@ -123,26 +122,29 @@ bookBtn.addEventListener("click", function () {
     }
 })
 
-let id = "";
 let houseData = [];
 
-fetch("houses.json")
-    .then(response => response.json())
-    .then(data => {
-        houseData = data;
-        id = new URLSearchParams(window.location.search).get("id");
-        console.log(id);
+async function fetchHouse() {
+    try {
+        houseData = await fetchJSON("../houses.json")
+        let id = new URLSearchParams(window.location.search).get("id");
+        if (!id) throw new Error("Id saknas");
         renderHouse(id);
-    })
-
-function scareConverter(level) {
-    return scareList[level - 1];
+    } catch (error) {
+        info.innerHTML = `<p class="error">${error.message}</p>`
+        info.classList.add("error");
+        bookContainer.innerHTML = "";
+        bookContainer.style.visibility = "hidden";
+    }
 }
+
+fetchHouse();
 
 let skies = ["Klar himmel", "Halvklar himmel", "Molnigt", "Mulet"];
 
 function renderHouse(id) {
-    if (isNaN(id) || id > houseData.length || id == "") {
+    curHouse = houseData.find(h => h.id == id);
+    if (!curHouse) {
         info.innerHTML =
             `<p class="error">HUSET KUNDE INTE HITTAS - KANSKE HAR DET FÖRSVUNNIT I DIMMAN?</p>`
         info.classList.add("error");
@@ -150,30 +152,20 @@ function renderHouse(id) {
         bookContainer.style.visibility = "hidden";
         return;
     }
-    curHouse = houseData.filter(h => h.id == id);
-    let wifiStatus = curHouse[0].hasWifi ? "WiFi tillgängligt" : "Inget WiFi";
-    if (curHouse.length == 0) {
-        info.innerHTML =
-            `<p class="error">HUSET KUNDE INTE HITTAS - KANSKE HAR DET FÖRSVUNNIT I DIMMAN?</p>`
-        info.classList.add("error");
-        bookContainer.innerHTML = "";
-        bookContainer.style.visibility = "hidden";
-        return;
-    }
-    console.log(curHouse);
-    const lat = curHouse[0].coordinates.lat;
-    const lng = curHouse[0].coordinates.lng;
+    let wifiStatus = curHouse.hasWifi ? "WiFi tillgängligt" : "Inget WiFi";
+    const lat = curHouse.coordinates.lat;
+    const lng = curHouse.coordinates.lng;
     fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lng}&current=temperature_2m,cloud_cover,wind_speed_10m`).then(response => response.json())
         .then(data => {
             let card = document.createElement("div");
             card.innerHTML = `
-            <img src="images/${house.image}" alt="${house.name}">
-            <h3>${curHouse[0].name}</h3>
-            <p>${curHouse[0].location}</p>
-            <p>${curHouse[0].description}</p>
-            <p>${curHouse[0].pricePerNight} Kr</p>
-            <p class="level${curHouse[0].scareLevel}">${scareConverter(curHouse[0].scareLevel)}</p>
-            <p>${curHouse[0].ghostTypes}</p>
+            <img id="displayed" src="images/${curHouse.image}" alt="${curHouse.name}">
+            <h3>${curHouse.name}</h3>
+            <p>${curHouse.location}</p>
+            <p>${curHouse.description}</p>
+            <p>${curHouse.pricePerNight} Kr</p>
+            <p class="level${curHouse.scareLevel}">${scareConverter(curHouse.scareLevel)}</p>
+            <p>${curHouse.ghostTypes}</p>
             <p>${wifiStatus}</p>
             <h4 class="weather">Väder</h4>
             <p class="weather">
@@ -184,8 +176,14 @@ function renderHouse(id) {
             `
             info.append(card);
             card.classList.add("card");
-            bookClass = new Booking(curHouse[0]);
-            total.textContent = "Totalt: " + curHouse[0].pricePerNight + " kr";
+            bookClass = new Booking(curHouse);
+            total.textContent = "Totalt: " + curHouse.pricePerNight + " kr";
+        })
+        .catch(error => {
+            info.innerHTML = `<p class="error">${error.message}</p>`
+            info.classList.add("error");
+            bookContainer.innerHTML = "";
+            bookContainer.style.visibility = "hidden";
         })
 }
 

@@ -1,6 +1,8 @@
 const houses = document.getElementById("houses");
-const scareList = ["Bebisens första skräckhus", "Konstig stämning", "Indieskräckfilm", "Makare av mardrömmar", "Ren terror"]
+
 let houseData = [];
+
+import { scareConverter, fetchJSON } from "./utils.js";
 
 const slider = document.getElementById("slider");
 const sliderText = document.getElementById("slider-text")
@@ -17,16 +19,17 @@ let wifiReq = false;
 
 async function fetchHouses() {
     try {
-        const response = await fetch("houses.json")
-        if (!response.ok) throw new Error("Kunde inte hämta husdata");
-        houseData = await response.json();
-        renderGhosts();
+        houseData = await fetchJSON("../houses.json");
         renderHouses();
-    } catch (error) {
-        houses.innerHTML = `<p class="error">${error.message}</p>`;
+        renderGhosts();
+    }
+    catch (error) {
+        houses.innerHTML = `<p class="error">${error.message}</p>`
         houses.classList.add("error");
     }
 }
+
+fetchHouses();
 
 function renderHouses() {
     try {
@@ -62,10 +65,6 @@ function renderHouses() {
         houses.innerHTML = `<p class="error">${error.message}</p>`;
         houses.classList.add("error");
     }
-}
-
-function scareConverter(level) {
-    return scareList[level - 1];
 }
 
 slider.addEventListener("input", function () {

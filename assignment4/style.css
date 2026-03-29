@@ -7,9 +7,21 @@ img {
     max-width: 20rem;
 }
 
+img#displayed {
+    max-width: 200rem;
+}
+
 h1, h2, h3, h4, p, li, label {
     color: lightyellow;
     font-family: 'Courier New', Courier, monospace;
+}
+
+h1 {
+    background-image: linear-gradient(red, rgb(44, 0, 20));
+    margin-top: 0;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    border-bottom: 0.2rem dotted lightyellow;
 }
 
 h3 {
@@ -182,4 +194,11 @@ p.weather {
     border: 0.1rem dotted lightyellow;
     padding: 0.5rem;
     border-radius: 1rem;
+}
+
+footer {
+    background-color: black;
+    margin-bottom: -2rem;
+    padding: 2rem;
+    border-top: 0.2rem dotted lightyellow;
 }
