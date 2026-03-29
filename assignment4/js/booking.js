@@ -11,6 +11,7 @@ export class Booking {
     validate() {
         let errors = [];
         const today = new Date();
+        today.setHours(0, 0, 0, 0);
         const checkinDate = new Date(this.checkin);
         if (!this.checkin || today > checkinDate) {
             errors.push("Ogiltigt datum");

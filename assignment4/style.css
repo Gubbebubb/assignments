@@ -172,3 +172,10 @@ p.weather {
     margin-left: 2rem;
     margin-top: 0;
 }
+
+#success {
+    margin-top: 2rem;
+    border: 0.1rem dotted lightyellow;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
