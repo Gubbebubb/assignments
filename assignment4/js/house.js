@@ -5,6 +5,7 @@ import { Booking } from "./booking.js";
 import { scareConverter, fetchJSON } from "./utils.js";
 
 let curHouse = {};
+//github pages refresh
 
 const breakfastCheck = document.getElementById("breakfast");
 const wanderCheck = document.getElementById("wander");
