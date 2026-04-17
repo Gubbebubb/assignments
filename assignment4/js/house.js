@@ -117,7 +117,7 @@ bookBtn.addEventListener("click", function () {
         `
         success.append(extrasList);
         success.innerHTML += `
-        <p>Totalt: + ${bookClass.totalCalc()} + kr</p>
+        <p>Totalt: ${bookClass.totalCalc()} + kr</p>
         <p>Tack så kusligt mycket! Ha det läskigt!</p>
         `
     }
